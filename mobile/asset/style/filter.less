@@ -1,0 +1,75 @@
+/*去除导航栏下方横线*/
+
+.c-filter {
+  display: -webkit-flex;
+  flex-direction: row;
+  z-index:300;
+  position: fixed;
+  width: 100%;
+  top: 44px;
+  background: #f7f7f8;
+  height: 40px;
+  //筛选栏下方横线
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: auto;
+    top: auto;
+    height: 1px;
+    width: 100%;
+    background-color: #c4c4c4;
+    display: block;
+    z-index: 15;
+  }
+  div {
+    display: flex;
+    flex: 1;
+    align-items: center; //交叉轴对齐方式，主轴为水平则交叉轴为垂直
+    justify-content: center; //主轴对齐方式，主轴默认水平
+    span {
+      background: url("../image/on_1.png") no-repeat right;
+      padding-right: 15px;
+    }
+  }
+  .chosen span{
+    background: url("../image/on_2.png") no-repeat right center;
+    color: #3cb9f3;
+  }
+}
+.c-patentType-eject,.c-patentStatus-eject,.c-priceRange-eject,.c-sortMethod-eject {
+  position: fixed;
+  background: #ffffff;
+  width: 100%;
+  top: -100%;
+  -webkit-transition-duration: 0.4s;
+  z-index: 20;
+  padding:0;
+}
+
+.c-layer-show84 {
+  top: 84px;
+  &:after {
+    position: fixed;
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: rgba(0, 0, 0, 0.2);
+  }
+}
+.c-layer-show124 {
+  top: 124px;
+  &:after {
+    position: fixed;
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: rgba(0, 0, 0, 0.2);
+  }
+}
+.c-margin0{
+  margin:0;
+}

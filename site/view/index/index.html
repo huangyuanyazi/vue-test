@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>淘权网</title>
+    <link rel="stylesheet" href="{{asset.theme.css}}">
+    <link rel="stylesheet" href="{{asset.index.css}}">
+</head>
+<body>
+    {{include "../common/header"}}
+    <div class="c-main c-index">
+        <div class="c-banner">巨幕幻灯轮播</div>
+        <div class="container">
+            <div class="c-askbuy">
+                <h2>最具价值的求购信息</h2>
+                <div class="c-content">
+                    这里是首页内容1
+                </div>
+            </div>
+            <div class="c-trademark">
+                <h2>最新的商标转让</h2>
+                <div class="c-content">
+                    这里是首页内容2
+                </div>
+            </div>
+            <div class="c-patent">
+                <h2>最新的专利转让</h2>
+                <div class="c-content">
+                    这里是首页内容3
+                </div>
+            </div>
+            <div class="c-news">
+                <h2>最新的行业资讯</h2>
+                <div class="c-content">
+                    这里是首页内容4
+                </div>
+                <div class="c-more">
+                    <a href="/article">更多</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{include "../common/footer"}}
+    <script src="{{asset.runtime.js}}"></script>
+    <script src="{{asset.vendor.js}}"></script>
+    <script src="{{asset.index.js}}"></script>
+</body>
+</html>

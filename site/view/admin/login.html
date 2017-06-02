@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>淘权网后台管理系统</title>
+    <link rel="stylesheet" href="{{asset['theme.css']}}">
+    <link rel="stylesheet" href="{{asset['admin-login.css']}}">
+</head>
+<body>
+    <div id="app" class="c-login">
+        <form action="login" method="post">
+            <dl>
+                <dt>用户名</dt>
+                <dd><input name="username" type="text"></dd>
+                <dt>密码</dt>
+                <dd><input name="password" type="password"></dd>
+                <dd><input type="submit" value="登录"></dd>
+            </dl>
+        </form>
+    </div>
+    <script src="{{asset['runtime.js']}}"></script>
+    <script src="{{asset['vendor.js']}}"></script>
+    <script src="{{asset['admin-login.js']}}"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+{
+  "client": {
+    "api": {
+      "url": "http://localhost:9090/v1"
+    },
+    "mobile": {
+      "url": "http://localhost:8081"
+    },
+    "mock": {
+      "url": "http://localhost:9093"
+    },
+    "site": {
+      "url": "http://localhost:8080"
+    }
+  },
+  "build": {
+    "mobileDev": {
+      "host": "localhost",
+      "port": 9097
+    },
+    "siteDev": {
+      "host": "localhost",
+      "port": 9096
+    }
+  },
+  "server": {
+    "api": {
+      "debug": false,
+      "port": 9090,
+      "ACCESS_TOKEN": "access-token",
+      "backend": "http://localhost:8080",
+      "validationPath": "/v1/validation/"
+    },
+    "mobile": {
+      "host": "localhost",
+      "port": 8081
+    },
+    "mock": {
+      "host": "localhost",
+      "port": 9093
+    },
+    "site": {
+      "host": "localhost",
+      "port": 8080
+    }
+  },
+  "system": {
+    "path": {
+      "root": "",
+      "upload": ""
+    },
+    "jwt": {
+      "key": "",
+      "expire": {
+        "auth": "3h",
+        "wap": "7d",
+        "app": "1m"
+      }
+    },
+    "log": {},
+    "mail": {},
+    "queue": {},
+    "redis": {},
+    "seo": {
+      "title": "淘权网",
+      "keywords": "淘权网,专利转让,商标转让,专利求购,商标求购,发明专利,外观设计,实用新型,文字商标,图形商标"
+    },
+    "sms": {}
+  }
+}

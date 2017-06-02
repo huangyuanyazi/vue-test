@@ -1,0 +1,11 @@
+.idea/
+config/development.json
+config/production.json
+logs/
+mock/db.json
+mock/route/*-local.js
+node_modules/
+public/
+site/public/
+mobile/public/
+npm-debug.log

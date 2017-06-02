@@ -1,0 +1,17 @@
+{
+  "watch": [
+    "config",
+    "mobile",
+    "mock",
+    "site"
+  ],
+  "ignore": [
+    "mobile/public",
+    "mock/db.json",
+    "site/public"
+  ],
+  "ext": "js html json",
+  "env": {
+    "NODE_ENV": "development"
+  }
+}
