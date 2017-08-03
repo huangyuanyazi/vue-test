@@ -1,0 +1,26 @@
+<html>
+<head>
+<body style="text-align: center;">
+<div id="mdiv" style="background:blue;width:0;height: 40px;">0%</div>
+<button onclick="timer()" style="font-size: 40px;" id="btn">timer</button>
+<script>
+    let mDiv = document.getElementById('mdiv')
+    let btn = document.getElementById('btn')
+    var timer;
+    btn.onclick = function(){
+        mDiv.style.width = '0';
+        cancelAnimationFrame(timer);
+        timer = requestAnimationFrame(function fn(){
+            if(parseInt(mDiv.style.width) < 500){
+                mDiv.style.width = parseInt(mDiv.style.width) + 5 + 'px';
+                mDiv.innerHTML =     parseInt(mDiv.style.width)/5 + '%';
+                timer = requestAnimationFrame(fn);
+            }else{
+                cancelAnimationFrame(timer);
+            }
+        });
+    }
+</script>
+</body>
+</head>
+</html>

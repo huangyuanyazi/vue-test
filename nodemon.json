@@ -1,14 +1,13 @@
 {
   "watch": [
+    "site/route",
+    "admin/route",
+    "patent/route",
     "config",
-    "mobile",
-    "mock",
-    "site"
+    "mock"
   ],
   "ignore": [
-    "mobile/public",
-    "mock/db.json",
-    "site/public"
+    "mock/db.json"
   ],
   "ext": "js html json",
   "env": {

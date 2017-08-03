@@ -3,8 +3,6 @@
  */
 "use strict";
 
-const helper = require('../libs/helper');
-
 module.exports.rules =  {
 	username: {
 		required: {},
@@ -30,8 +28,4 @@ module.exports.rules =  {
 		mobile: {},
 		unique: {targetClass: 'User'}
 	}
-};
-
-module.exports.beforeProxy = (req, res) => {
-	return helper.reject(req, res);
 };

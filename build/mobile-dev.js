@@ -1,18 +1,20 @@
 /**
  * mobile dev服务
- * Created by john on 2017/4/10.
+ * Created by Wangxy on 2017/4/10.
  */
-let express = require("express")
-let devMiddleware = require("webpack-dev-middleware")
-let webpack = require("webpack")
-let config = require("config")
-let moment = require("moment")
-let http = require("http")
+let express = require('express')
+let http = require('http')
+let devMiddleware = require('webpack-dev-middleware')
+let webpack = require('webpack')
+let moment = require('moment')
+
+const Config = require('../libs/config')
+let buildConfig = Config.get('build')
+
+let mobileWebpackConfig = require('./mobile-webpack-config')
+let mobileCompiler = webpack(mobileWebpackConfig)
 
 let mobileDevApp = express()
-
-let mobileWebpackConfig = require("./mobile-webpack-config")
-let mobileCompiler = webpack(mobileWebpackConfig)
 
 mobileDevApp.use(devMiddleware(mobileCompiler, {
     stats: {
@@ -20,10 +22,25 @@ mobileDevApp.use(devMiddleware(mobileCompiler, {
     }
 }))
 
-//启动mobile-dev服务并监听9097端口
 let mobileDevServer = http.createServer(mobileDevApp)
-mobileDevServer.listen(config.get("build.mobileDev.port"), config.get("build.mobileDev.host"), function () {
+
+mobileDevServer.listen(buildConfig.build.development.port, function () {
     let host = mobileDevServer.address().address
     let port = mobileDevServer.address().port
-    console.log("mobile-dev服务已启动，主机：" + host + "，端口：" + port + " [" + moment().format("YYYY-MM-DD HH:mm:ss") + "]")
+    console.log('site-dev服务已启动，主机：' + host + '，端口：' + port + ' [' + moment().format('YYYY-MM-DD HH:mm:ss') + ']')
 })
+
+/*
+let mobileDev = {
+    build: function () {
+        console.log('开始构建mobile项目...')
+        return devMiddleware(mobileCompiler, {
+            stats: {
+                colors: true
+            }
+        })
+    }
+}
+
+module.exports = mobileDev
+*/

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		.c-r {
+			height: 26px;
+			width: 26px;
+			background: red;
+			transform: rotate(45deg);
+			position: absolute;
+			right: 20px;
+			border-radius: 2px
+		}
+		
+		.c-r::after {
+			content: '';
+			height: 30px;
+			width: 30px;
+			background: red;
+			transform: rotate(45deg);
+			position: absolute;
+			right: 20px;
+			border-radius: 2px
+		}
+		
+		.c-star {
+			width: 0;
+			height: 0;
+			border-left: 50px solid transparent;
+			border-right: 50px solid transparent;
+			border-bottom: 200px solid red;
+			position: relative;
+		}
+		
+		.c-popover-content {
+			height: 100px;
+			width: 100px;
+			background: red;
+			position: absolute;
+			right: 10px;
+			border-radius: 10px
+		}
+		
+		.c-popover {
+			position: absolute;
+			top: 44px;
+			right: 20px
+		}
+	</style>
+</head>
+<body>
+<div class="c-popover">
+	<div class="c-r"></div>
+	<div class="c-popover-content"></div>
+</div>
+<div class="c-star"></div>
+</body>
+</html>

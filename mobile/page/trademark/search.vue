@@ -21,7 +21,8 @@
         <f7-grid no-gutter id="trademark_classify">
             <f7-col width="50"
                     v-for="classifyItem of classifyItems"
-                    @click.native="linkToIndex(classifyItem)">
+                    @click.native="linkToIndex(classifyItem)"
+                    :key="classifyItem.id">
                 {{classifyItem.sort_name}}
             </f7-col>
         </f7-grid>
@@ -45,11 +46,12 @@
 </style>
 <script>
     export default{
+        name: 'TqTrademarkSearch',
         data(){
             return {
                 isInit: true,
                 searchInputValue: "",
-                classifyItems:[]
+                classifyItems: []
             }
         },
         mounted(){
@@ -112,9 +114,7 @@
         methods: {
             cancel()
             {
-                this.$router.load({
-                    url: "/trademark/"
-                })
+                this.$router.back()
             }
             ,
             keyupEvent()
@@ -124,14 +124,13 @@
                 })
             },
             linkToIndex(classifyItem){
-                this.$router.load({url:'/trademark/?searchItem='+classifyItem.sort_name+''})
+                this.$router.load({url: '/trademark/?searchItem=' + classifyItem.sort_name})
             }
         },
-        created()
-        {
+        created(){
             console.log('created')
-            $$.getJSON(config.mock.url+'/trademark_classify', (data, status, xhr) => {
-               this.classifyItems=data;
+            $$.getJSON(config.mock.url + '/trademark_classify', (data, status, xhr) => {
+                this.classifyItems = data
             })
         },
         beforeDestroy(){

@@ -1,0 +1,92 @@
+@import "public.css";
+
+html,body  {
+
+	height: 100%;
+	width: 100%;
+
+}
+
+.c-login {
+		// display: flex; 
+		// flex-direction: column; 
+		// justify-content: center; 
+	height: 100%;
+	width: 100%;
+	background: #E5E9F2;
+	position: absolute;
+	.c-patent-header{
+		position: absolute;
+		width: 100%;
+		height: 100px;
+		left: 0;
+		top: 0;
+		// background: #E5E9F2;
+		border-bottom: 2px solid #fff;
+		.c-patent-login{
+			height: 100%;
+			line-height: 100px;
+			font-size: 20px;
+			float: left;
+		}
+		.c-patent-nav{
+			float: right;
+			display: block;
+			overflow: hidden;
+			.c-patent-list{
+				float: left;
+				margin-left: 10px;
+				height: 30px;
+				line-height: 30px;
+				margin-top: 40px;
+				.c-patent-link:hover{
+					color: #E54C53;
+				}
+			}
+
+		}
+	}
+	.c-form {
+		// display: flex; 
+		// flex-direction: column; 
+		// align-items: center; 
+		width: 100%; 
+		// background-color: #E5E9F2; 
+		height: 300px;
+		position: relative;
+		top: 50%;
+		margin-top: -150px;
+		background: #E5E9F2;
+		.c-form-box{
+			position: absolute;
+			// height: 300px;
+			left: 50%;
+			top: 50%;
+			transform:translate(-50%,-50%);
+
+			.c-form-title {
+				padding: 20px 0; 
+				font-size: 18px; 
+				color: #999;
+				text-align: center;
+			}
+			.c-form-content {
+
+			}
+		}
+		
+	}
+	.c-patent-footer{
+		position: absolute;
+		width: 100%;
+		height: 100px;
+		left: 0;
+		bottom: 0;
+		// background: #E5E9F2;
+		border-top: 2px solid #fff;
+		.c-copyright{
+			text-align: center;
+			line-height: 98px;
+		}
+	}
+}

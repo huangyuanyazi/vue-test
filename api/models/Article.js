@@ -6,7 +6,7 @@
 module.exports.rules = {
 	article_category_id: {
 		required: {},
-		integer: {min: 1},
+		integer: {min: 1, max: 2147483647},
 		exist: {targetClass: 'ArticleCategory', targetAttribute: 'id'}
 	},
 	title: {
@@ -15,34 +15,39 @@ module.exports.rules = {
 	},
 	keywords: {
 		required: {},
-		string: {max: 100},
-		json: {type: 'array'}
+		json: {
+			pattern: [{
+				rules: {
+					string: {min: 1}
+				}
+			}]
+		}
 	},
 	content: {
 		required: {}
 	},
 	hits: {
-		integer: {min: 0},
+		integer: {min: 0, max: 2147483647},
 	},
 	order: {
-		integer: {min: 0},
+		integer: {min: 0, max: 2147483647},
 	},
 	created_by: {
-		integer: {min: 0},
+		integer: {min: 1, max: 2147483647},
 		exist: {targetClass: 'Admin', targetAttribute: 'id'}
 	},
 	updated_by: {
-		integer: {min: 0},
+		integer: {min: 1, max: 2147483647},
 		exist: {targetClass: 'Admin', targetAttribute: 'id'}
 	},
 	created_at: {
-		integer: {min: 0},
+		integer: {min: 0, max: 2147483647},
 	},
 	updated_at: {
-		integer: {min: 0},
+		integer: {min: 0, max: 2147483647},
 	},
 	source: {
-		string: {max: 100},
+		string: {max: 256},
 		url: {}
 	},
 };

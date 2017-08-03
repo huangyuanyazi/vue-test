@@ -7,8 +7,21 @@ const _ = require('underscore');
 _.templateSettings = {
 	interpolate: /\{(.+?)\}/g
 };
-const v = require('./libs/validation');
-
+const config = require('../libs/config').get();
+const v = require('../libs/validation');
+const axios = require('axios');
+axios({
+	method: 'GET',
+	url: 'http://api.tq.com/v1/admins',
+	data: [],
+	headers: [],
+	params: []
+}).then(response => {
+	//console.log(response);
+	console.log(response);
+}).catch(err => {
+	console.error(err);
+});
 let allModelData = {
 	Article: {
 		article_category_id: 111,
@@ -33,23 +46,19 @@ let allModelData = {
 	}
 };
 
-let urlProd = 'https://api.tq.com/v1/validation';
-let urlDev = 'http://api.tq.com:9090/v1/validation';
-
 let validateAll = async () => {
 	for(let modelName in allModelData) {
 		let modelData = allModelData[modelName];
 		console.log('--------------'+modelName+'------------------');
-		let va = new v(modelName, modelData, urlDev);
+		let va = new v(modelName, modelData);
 		for(let field in modelData) {
 			console.log(field);
 			try {
 				let result = await va.validateField(field, field);
 				if(_.isEmpty(result)) console.log('\t[result] -> True');
-				else console.log('\t[result] -> '+JSON.stringify(result));
+				else console.log('\t[result] -> ', JSON.stringify(result));
 			} catch (error) {
-				console.error('\t[error] -> ');
-				console.error(error);
+				console.error('\t[error] -> ', error);
 			}
 		}
 	}

@@ -1,0 +1,57 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body{
+	font-size: 14px;
+	color: #333;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+a{
+	color: #333;
+}
+body,ul,li,p,h1,h2,h3,h4,h5,h6,img,br,hr,table,tr,td,dl,dt,dd,form,input,button {
+	margin: 0;
+	padding: 0;
+}
+
+ul,li{
+	list-style-type: none;
+}
+img,input{
+	border: none;
+}
+img{
+	max-width: 100%;
+	max-height: 100%;
+}
+a,a:focus,a:hover{
+	outline: none;
+	text-decoration: none;
+}
+textarea:focus,input:focus ,button:focus,select,select:focus,option,option:focus{
+	outline: none;
+}
+
+@media (min-width: 768px) {
+	.c-patent {
+		width: 750px;
+		margin: 0 auto;
+		display: table;
+	}
+}
+@media (min-width: 992px) {
+	.c-patent {
+		width: 970px;
+		margin: 0 auto;
+		display: table;
+	}
+}
+@media (min-width: 1200px) {
+	.c-patent {
+		width: 1180px;
+		margin: 0 auto;
+		display: table;
+	}
+}

@@ -6,30 +6,26 @@
 module.exports.rules =  {
 	user_id: {
 		required: {},
-		integer: {min: 0},
+		integer: {min: 1, max: 2147483647},
 		exist: {targetClass: 'User', targetAttribute: 'id'}
 	},
 	nickname: {
 		string: {min: 2, max: 50},
 	},
-	real_name: {
-		string: {min: 2, max: 50},
-	},
 	points: {
-		integer: {min: 0},
+		integer: {min: 0, max: 2147483647},
 	},
 	frozen_points: {
-		integer: {min: 0},
+		integer: {min: 0, max: 2147483647},
 	},
 	balance: {
-		float: {min: 0.0}
+		float: {min: 0.0, max: 99999999.99}
 	},
 	frozen_balance: {
-		float: {min: 0.0}
+		float: {min: 0.0, max: 99999999.99}
 	},
 	gender: {
-		string: {length: 1},
-		in: {range: ['M', 'F']}
+		in: {range: ['M', 'F'], strict: true}
 	},
 	birthday: {
 		date: {format: 'yyyy-MM-dd'}
@@ -41,12 +37,12 @@ module.exports.rules =  {
 		string: {min: 5, max: 20},
 	},
 	register_ip: {
-		integer: {min: 0},
+		integer: {min: 0, max: 2147483647},
 	},
 	logged_in_ip: {
-		integer: {min: 0},
+		integer: {min: 0, max: 2147483647},
 	},
 	logged_in_at: {
-		integer: {min: 0},
+		integer: {min: 0, max: 2147483647},
 	}
 };

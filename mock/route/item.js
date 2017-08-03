@@ -11,10 +11,12 @@ router.get("/items", function(request, response, next) {
     for (let i = 0; i < 5; i++) {
         data.push({
             id: i,
-            name: faker.name.title(),
-            price: faker.random.number()
+            clickUrl: faker.image.imageUrl(),
+            desc: faker.database.column(),
+            image: faker.image.image()
         })
     }
+    
     response.json(data)
 })
 
@@ -24,7 +26,11 @@ router.get("/items/:id", function(request, response, next) {
         name: faker.name.title(),
         price: faker.random.number()
     }
+
     response.json(data)
 })
 
+
 module.exports = router
+
+

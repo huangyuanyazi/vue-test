@@ -8,17 +8,38 @@ import "framework7/dist/css/framework7.ios.colors.css"
 import "font-awesome/css/font-awesome.css"
 import Vue from "vue/dist/vue.js"
 import Framework7Vue from "framework7-vue/dist/framework7-vue.js"
-// import "../asset/style/theme.less"
 import App from "../view/app.vue"
-// import actions from "../action/index"
 import Routes from "../view/routes.js"
 window.$$ = Dom7
-
-
+import iphoneToDetail from '../view/iphoneToDetail'
 // let actionExecutor = null
 
 Vue.use(Framework7Vue)
+Vue.filter('showFilter', function (value, shop, attr) {
+    if (!value) {
+        return '无'
+    }
+    switch (shop) {
+        case 'patent':
+            switch (attr) {
+                case 'type':
+                    return value == 0 ? '发明' : (value == 1 ? '实用新型' : '外观设计')
+                    break;
+                case 'status':
+                    return value == 0 ? '授权未缴费' : '已下证'
+                    break;
+                default:
+                    break
+            }
+            break;
+        case 'trademark':
+            return value == 0 ? '文字商标' : '图形商标'
+            break;
+        default:
+            break
+    }
 
+})
 new Vue({
     el: '#app',
     template: '<app/>',
@@ -29,12 +50,15 @@ new Vue({
         // material: true,
         // routes: Routes,
         pushState: true,
-        pushStateSeparator: "#",
+        pushStateSeparator: "#page",
         dynamicNavbar: true,
         routes: Routes,
     },
     // Register App Component
     //
+    mounted(){
+        iphoneToDetail()
+    },
     components: {
         app: App
     },
@@ -93,3 +117,4 @@ new Vue({
 // })
 
 //setTimeout(mainView.router.loadPage, 1000, "page/patent/index.vue")
+

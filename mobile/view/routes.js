@@ -4,8 +4,10 @@ import PatentSearch from '../page/patent/search.vue'
 import TrademarkIndex from '../page/trademark/index.vue'
 import TrademarkDetail from '../page/trademark/detail.vue'
 import TrademarkSearch from '../page/trademark/search.vue'
-
-export default [
+// import Vue from "vue/dist/vue.js"
+// import VueRouter from 'vue-router'
+// Vue.use(VueRouter);
+const routes = [
     {
         path: "/patent/",
         component: PatentIndex,
@@ -31,3 +33,4 @@ export default [
         component: TrademarkSearch,
     },
 ]
+export default routes;

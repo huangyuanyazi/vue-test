@@ -3,8 +3,6 @@
  */
 "use strict";
 
-const helper = require('../libs/helper');
-
 module.exports.rules =  {
 	identity: {
 		required: {},
@@ -14,8 +12,4 @@ module.exports.rules =  {
 		required: {},
 		string: {min: 6, max: 60},
 	},
-};
-
-module.exports.beforeProxy = (req, res) => {
-	return helper.reject(req, res);
 };

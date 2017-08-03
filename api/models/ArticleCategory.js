@@ -15,11 +15,11 @@ module.exports.rules =  {
 		unique: {}
 	},
 	parent_id: {
-		integer: {min: 0},
+		integer: {min: 1, max: 2147483647},
 		exist: {targetClass: 'ArticleCategory', targetAttribute: 'id'}
 	},
 	order: {
-		integer: {min: 0},
+		integer: {min: 0, max: 2147483647},
 	},
 	template_path: {
 		string: {max: 256},

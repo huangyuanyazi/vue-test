@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function runAsync1() {
+        let p = new Promise(function (resolve, reject) {
+            //做一些异步操作
+            setTimeout(function () {
+                console.log('执行完成1');
+                resolve('随便什么数据1');
+            }, 1000);
+        })
+        return p;
+    }
+    function runAsync2() {
+        let p = new Promise(function (resolve, reject) {
+            //做一些异步操作
+            setTimeout(function () {
+                console.log('执行完成2');
+                resolve('随便什么数据2');
+            }, 2000);
+        })
+        return p;
+    }
+    function runAsync3() {
+        let p = new Promise(function (resolve, reject) {
+            //做一些异步操作
+            setTimeout(function () {
+                console.log('执行完成3');
+                resolve('随便什么数据3');
+            }, 2000);
+        })
+        return p;
+    }
+
+    //    runAsync1().then(function (data) {
+    //        console.log(data)
+    //        return runAsync2()
+    //    }).then(function (data) {
+    //        console.log(data)
+    //        return runAsync3()
+    //    }).then(function (data) {
+    //        console.log(data)
+    //    })
+
+    function runAsyncNumber() {
+        let p = new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                let num = Math.ceil(Math.random() * 10)
+                if (num <= 5) {
+                    resolve(num)
+                } else {
+                    reject('数字太大')
+                }
+            }, 2000)
+        })
+        return p;
+    }
+    //------------------------------------------------------
+    //    runAsyncNumber().then(function (data) {
+    //        console.log('resolved')
+    //        console.log(data)
+    //    }, function (reason, data) {
+    //        console.log('rejected')
+    //        console.log(reason)
+    //        console.log(data)
+    //    })
+    //-------------------------------------------------------
+    //    runAsyncNumber().then(function (data) {
+    //        console.log('resolved')
+    //        console.log(data)
+    //        console.log(mezu)//未定义，catch错误
+    //
+    //    }).catch(function (reason) {
+    //        console.log('rejected')
+    //        console.log(reason)
+    //    })
+    //    Promise.all([runAsync1(), runAsync2(), runAsync3()]).then(function (results) {
+    //        console.log(results)
+    //    })
+    //------------------------------------------------------------------------------
+    //    Promise.race([runAsync1(), runAsync2(), runAsync3()]).then(function (results) {
+    //        console.log(results)
+    //    })
+
+    function loadImg() {
+        let p = new Promise(function (resolve, reject) {
+            let img = new Image();
+            img.onload = function () {
+                resolve(img)
+            }
+            img.src = 'xxxxxxxxxxxxx'
+        });
+        return p;
+    }
+    function timeout() {
+        let p = new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                reject('请求超时')
+            }, 5000)
+        })
+        return p;
+    }
+    Promise.race([loadImg(), timeout()]).then(function (data) {
+        console.log(data)
+    }).catch(function (reason) {
+        console.log(reason)
+    })
+</script>
+</html>

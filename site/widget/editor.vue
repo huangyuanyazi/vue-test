@@ -1,6 +1,8 @@
 <template>
     <div class="c-editor">
-        <div id="editor">{{value}}</div>
+        {{value}}
+        <div id="editor"></div>
+
         <el-dialog title="插入链接" v-model="linkEditVisible" size="tiny" top="25%">
             <div>
                 <el-input placeholder="请输入内容" v-model="link"></el-input>
@@ -29,12 +31,24 @@
         data () {
             return {
                 quill: null,
+                content: '',
                 link: "",
                 linkEditVisible: false,
                 imageUploadVisible: false
             }
         },
+        watch: {
+            value (val) {
+                console.log(val)
+                this.quill.clipboard.dangerouslyPasteHTML(val)
+                //this.content = val
+                //this.quill.setText(val)
+            }
+        },
         mounted () {
+
+            //console.log(this.value)
+            //this.content = this.value
             let vm = this
             let Font = Quill.import("attributors/style/font")
             Font.whitelist = ["宋体", "微软雅黑", "仿宋", "楷体", "Georgia", "Helvetica"]
@@ -97,8 +111,11 @@
                     }
                 }
             })
+            //let delta = this.quill.getContents()
+            //console.log(delta)
+
             //编辑器文本变化时触发父组件input事件
-            this.quill.on("text-change", () => vm.$emit("input", this.quill.container.firstChild.innerHTML))
+            //this.quill.on("text-change", () => vm.$emit("input", this.quill.container.firstChild.innerHTML))
         },
         methods: {
             insertLink () {

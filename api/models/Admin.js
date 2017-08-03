@@ -3,12 +3,12 @@
  */
 "use strict";
 
-const path = require('path');
-let parent = path.resolve(__dirname, 'UserCommon.js');
-delete require.cache[__filename];
+delete require.cache[__filename];   //否则UserCommon全局共享，导致下面的更改会影响其它Model
 let userCommon = require('./UserCommon');
 
-userCommon.rules.username.unique = {targetClass: 'Admin'}
-userCommon.rules.email.unique = {targetClass: 'Admin'}
-userCommon.rules.mobile.unique = {targetClass: 'Admin'}
+userCommon.rules.username.unique = {targetClass: 'Admin'};
+userCommon.rules.email.required = {};
+userCommon.rules.email.unique = {targetClass: 'Admin'};
+userCommon.rules.mobile.unique = {targetClass: 'Admin'};
+
 module.exports.rules = userCommon.rules;

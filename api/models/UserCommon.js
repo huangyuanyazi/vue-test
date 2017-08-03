@@ -12,10 +12,22 @@ const TYPE_USER = 2;
 
 module.exports.TYPE_ADMIN = TYPE_ADMIN;
 module.exports.TYPE_USER = TYPE_USER;
+module.exports.STATUS_DELETED = STATUS_DELETED;
+module.exports.STATUS_ACTIVE = STATUS_ACTIVE;
+module.exports.STATUS_INACTIVE = STATUS_INACTIVE;
+module.exports.status = {
+	STATUS_DELETED: '已删除',
+	STATUS_ACTIVE: '已激活',
+	STATUS_INACTIVE: '未激活',
+};
+module.exports.type = {
+	TYPE_ADMIN: '管理员',
+	TYPE_USER: '用户',
+};
 module.exports.rules = {
 	username: {
 		required: {},
-		string: {min: 5, max: 100},
+		string: {min: 5, max: 50},
 		unique: {targetClass: 'UserCommon'},
 		username: {forbiddenWords: ['淘权', 'taoquan']}
 	},
@@ -40,6 +52,10 @@ module.exports.rules = {
 		unique: {targetClass: 'UserCommon'}
 	},
 	status: {
-		in: {range: [STATUS_ACTIVE, STATUS_DELETED, STATUS_INACTIVE]}
-	}
+		required: {},
+		enum: {range: [STATUS_ACTIVE, STATUS_DELETED, STATUS_INACTIVE]}
+	},
+	real_name: {
+		string: {min: 2, max: 50},
+	},
 };
